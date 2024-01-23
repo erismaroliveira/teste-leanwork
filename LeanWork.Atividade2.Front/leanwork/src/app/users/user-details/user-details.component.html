@@ -1,0 +1,62 @@
+<ng-container *ngIf="loading else loadingComplete">
+  <div class="container d-flex justify-content-center">
+    <div class="spinner-border" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+</ng-container>
+<ng-template #loadingComplete>
+  <div class="container mt-3">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <label class="input-group-text"><b>Id</b></label>
+          </div>
+          <input type="text" class="form-control" value="{{user.id}}" disabled>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <label class="input-group-text"><b>Login</b></label>
+          </div>
+          <input type="text" class="form-control" value="{{user.login}}" disabled>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <label class="input-group-text"><b>URL do perfil</b></label>
+          </div>
+          <input type="text" class="form-control" value="{{user.html_url}}" disabled>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <label class="input-group-text"><b>Data de cadastro</b></label>
+          </div>
+          <input type="text" class="form-control" value="{{user.created_at | date: 'dd/MM/yyyy' }}" disabled>
+        </div>
+      </div>
+    </div>
+  
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Nome</th>
+          <th scope="col">Url do repositório</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let repository of repositories">
+          <th scope="row">{{repository.id}}</th>
+          <td>{{repository.name}}</td>
+          <td>{{repository.url}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</ng-template>

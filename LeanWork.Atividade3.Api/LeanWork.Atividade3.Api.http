@@ -1,0 +1,6 @@
+@LeanWork.Atividade3.Api_HostAddress = http://localhost:5202
+
+GET {{LeanWork.Atividade3.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
